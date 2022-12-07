@@ -94,6 +94,7 @@ project.ext.vectoricons = [
 //for firebase database
 apply plugin: 'com.google.gms.google-services'
 
+
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -288,9 +289,6 @@ dependencies {
         implementation jscFlavor
     }
 }
-
-//for firebase google
-apply plugin: 'com.google.gms.google-services'
 
 if (isNewArchitectureEnabled()) {
     // If new architecture is enabled, we let you build RN from source
