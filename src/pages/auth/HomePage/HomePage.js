@@ -115,7 +115,7 @@ const HomePage = ({navigation}) => {
                   <Text style={styles.facebook_text}>Facebook İle Kayıt Ol</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.sign_in} onPress={() => navigation.navigate('SignIn') }>
-                  <Text style={styles.sign_in_text}>Kayıt Ol</Text>
+                    <Text style={styles.sign_in_text}>Kayıt Ol</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={signOut}>
                   <Text style={{ alignSelf:'center' }}>Oturumunu Kapat!</Text>
@@ -124,7 +124,7 @@ const HomePage = ({navigation}) => {
             <View style={styles.footer_container}>
                 <Text style={styles.question_text}>Zaten bir hesabınız var mı?</Text>
                 <TouchableOpacity style={styles.login}>
-                    <Text style={styles.login_text}>Giriş Yap</Text>
+                    <Text style={styles.login_text} onPress={() => navigation.navigate('Login') }>Giriş Yap</Text>
                 </TouchableOpacity>
             </View>
         </View>
