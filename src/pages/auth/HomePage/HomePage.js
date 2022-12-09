@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+import Button from "../../../components/Button";
 
 
 const HomePage = ({navigation}) => {
@@ -114,9 +115,10 @@ const HomePage = ({navigation}) => {
                   <Icon name="facebook" size={40} />
                   <Text style={styles.facebook_text}>Facebook İle Kayıt Ol</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.sign_in} onPress={() => navigation.navigate('SignIn') }>
-                    <Text style={styles.sign_in_text}>Kayıt Ol</Text>
-                </TouchableOpacity>
+                <Button 
+                  onPress={() => navigation.navigate('SignIn')}
+                  text="Kayıt Ol"
+                />
                 <TouchableOpacity onPress={signOut}>
                   <Text style={{ alignSelf:'center' }}>Oturumunu Kapat!</Text>
                 </TouchableOpacity>
