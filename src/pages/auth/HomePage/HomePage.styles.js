@@ -16,7 +16,6 @@ export default StyleSheet.create({
         alignSelf:'center',
         marginBottom:25,
         marginTop:-30,
-        fontWeight:'bold'
     },
     body_container:{
         justifyContent:'center',
@@ -55,7 +54,7 @@ export default StyleSheet.create({
         marginRight:50
     },
     footer_container:{
-        marginTop:80
+        marginTop:25
     },
     login:{
 

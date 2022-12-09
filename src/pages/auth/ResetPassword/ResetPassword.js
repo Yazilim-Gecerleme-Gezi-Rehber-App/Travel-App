@@ -1,20 +1,26 @@
-import React from "react";
-import {TouchableOpacity, Text, TextInput, View} from 'react-native';
+import React, {useState} from "react";
+import {Text, View} from 'react-native';
 import styles from './ResetPassword.styles';
+import Input from '../../../components/Input';
+import Button from '../../../components/Button';
 
 const ResetPassword = () => {
+    const [mail, setMail] = useState('');
+
     return(
         <View style={styles.container}>
             <Text style={styles.header}>Şifremi Unuttum</Text>
-            
-            <View style={styles.RPWrapper}><Text style={styles.LineStyle} >Emailiniz</Text>
-            <TextInput style={styles.inputStyle}></TextInput>
-            
-            <TouchableOpacity style={styles.sign_in} >
-                    <Text style={styles.sign_in_text}>Gönder</Text>
-                </TouchableOpacity></View>
-           
-            
+            <View style={styles.body_container}>
+                <Text style={styles.lineStyle}>E-Mailiniz</Text>
+                <Input
+                    value={mail}
+                    setValue={setMail}
+                    placeholder="E-Mailiniz"
+                />
+                <Button
+                    text="Gönder"
+                />
+            </View> 
         </View>
     );
 };

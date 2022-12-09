@@ -11,48 +11,21 @@ export default StyleSheet.create({
         marginTop:30,
         color:'#ffd633',
     },
-    LoginWrapper:{
-        marginTop:150,
+    body_container:{
+        marginVertical:100
     },
-    LineStyle:{
-        marginLeft:10,
-        marginTop:20,
-        marginBottom:20,
-        fontFamily:'ZenDots-Regular',
-        fontSize:17,
-        marginTop:5,
-        color:'#737373'
-        
+    lineStyle:{
+        marginHorizontal:12,
+        marginVertical:10,
+        fontFamily:'RopaSans-Regular',
+        fontWeight:'bold',
+        fontSize:20,
+        color:'#737373' 
     },
-    inputStyle:{
-        marginLeft:10,
-        marginRight:10,
-        height:40,
-        borderWidth:2,
-        borderColor:'#ffd633',
-        borderRadius:8
-
-    }, question_text:{
-        marginTop:15,
+    question_text:{
         fontSize:18,
         fontWeight:'bold',
         alignSelf:'center',
         color:'#737373',
-    },
-    sign_in:{
-        borderWidth:2,
-        borderRadius:50,
-        padding:10,
-        backgroundColor:'#ffd633',
-        borderColor:'#ffd633',
-        marginTop:20,
-        marginLeft:50,
-        marginRight:50
-    },
-    sign_in_text:{
-        fontSize:25,
-        fontWeight:'bold',
-        color:'white',
-        alignSelf:'center'
-    },
+    }
 });

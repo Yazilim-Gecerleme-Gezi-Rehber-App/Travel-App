@@ -31,11 +31,11 @@ const SignIn = () => {
 
             />
 
-            <Text style={styles.lineStyle} >Emailiniz</Text>
+            <Text style={styles.lineStyle} >E-Mailiniz</Text>
             <Input
                 value={mail}
                 setValue={setMail}
-                placeholder="Emailiniz"
+                placeholder="E-Mailiniz"
 
             />
 
