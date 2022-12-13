@@ -1,39 +1,75 @@
 import React, {useState} from "react";
-import {TouchableOpacity, Text, TextInput, View} from 'react-native';
+import {TouchableOpacity, Text, View} from 'react-native';
 import styles from './Login.styles';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import { Formik } from "formik";
+import auth from '@react-native-firebase/auth';
+import { showMessage } from "react-native-flash-message";
+import authErrorMessageParser from "../../../utils/authErrorMessageParser";
+
+const initialFormValues = {
+    usermail :'',
+    password :''
+};
 
 const Login = ({navigation}) => {
-    const [mail, setMail] = useState('');
-    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    return(
-        <View style={styles.container}>
-            <Text style={styles.header}>Giriş Ekranı</Text>
+    async function handleFormSubmit(formValues) {
+        try {
+            setLoading(true);
+            await auth().signInWithEmailAndPassword(
+                formValues.usermail,
+                formValues.password,
+            );
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            showMessage({
+                message: authErrorMessageParser(error.code),
+                type:'danger'
+            })
+            setLoading(false);
+        }
+    };
 
-            <View style={styles.body_container}>
-                <Text style={styles.lineStyle} >E-Mailiniz</Text>
-                <Input
-                    value={mail}
-                    setValue={setMail}
-                    placeholder="E-Mailiniz"
+    return (
+      <View style={styles.container}>
+        <Text style={styles.header}>Giriş Ekranı</Text>
+
+        <View style={styles.body_container}>
+          <Formik initialValues={initialFormValues} onSubmit={handleFormSubmit} >
+            {({values, handleChange, handleSubmit}) => (
+                <>
+                <Text style={styles.lineStyle}>E-Mailiniz</Text>
+                <Input 
+                    value={values.usermail} 
+                    onType={handleChange('usermail')}
+                    placeholder="E-Mailiniz" 
                 />
                 <Text style={styles.lineStyle}>Şifreniz</Text>
                 <Input
-                    value={password}
-                    setValue={setPassword}
+                    value={values.password}
+                    onType={handleChange('password')}
                     placeholder="Şifreniz"
                     secureTextEntry={true}
                 />
-                <Button
-                    text="Giriş Yap"
+                <Button 
+                    text="Giriş Yap" 
+                    loading={loading}
                 />
-                <TouchableOpacity onPress={() => navigation.navigate('ResetPassword') }>
-                    <Text style={styles.question_text}>Şifremi unuttum</Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('ForgotPassword')}
+                  loading={loading}
+                >
+                  <Text style={styles.question_text}>Şifremi unuttum</Text>
                 </TouchableOpacity>
-            </View>             
+              </>
+            )}
+          </Formik>
         </View>
+      </View>
     );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import {Text, View, Button} from 'react-native';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import FlashMessage from "react-native-flash-message";
 
 import HomePage from './pages/auth/HomePage';
 import SignIn from './pages/auth/SignIn';
@@ -41,6 +42,7 @@ function App(){
                 component={ConfirmSignInMail}
            />
       </Stack.Navigator>
+      <FlashMessage position="top" />
     </NavigationContainer>
   );
 };
