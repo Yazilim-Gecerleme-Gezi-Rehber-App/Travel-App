@@ -4,7 +4,7 @@ import styles from './SignIn.styles';
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [mail, setMail] = useState('');
@@ -57,6 +57,7 @@ const SignIn = () => {
 
             <Button
                 text="Kayıt Ol"
+                onPress={() => navigation.navigate('ConfirmSignInMail')}
             />
         </View>
     );

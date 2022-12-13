@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {Text, View} from 'react-native';
-import styles from './ResetPassword.styles';
+import styles from './ForgotPassword.styles';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 
-const ResetPassword = () => {
+const ForgotPassword = ({navigation}) => {
     const [mail, setMail] = useState('');
 
     return(
@@ -18,6 +18,7 @@ const ResetPassword = () => {
                     placeholder="E-Mailiniz"
                 />
                 <Button
+                    onPress={() => navigation.navigate('NewPassword')}
                     text="Gönder"
                 />
             </View> 
@@ -25,4 +26,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default ForgotPassword;
