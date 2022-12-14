@@ -11,7 +11,10 @@ export default function(errorCode){
     
         case 'auth/weak-password':
             return 'Parolanız Zayıf!';
-            
+        
+        case 'auth/wrong-password':
+            return 'Hatalı Şifre Girişi';
+
         default:
             return errorCode;
     };

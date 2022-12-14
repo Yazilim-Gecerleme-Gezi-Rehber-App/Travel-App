@@ -24,6 +24,7 @@ const Login = ({navigation}) => {
                 formValues.password,
             );
             setLoading(false);
+            navigation.navigate('HomePage');
         } catch (error) {
             console.log(error);
             showMessage({
@@ -58,6 +59,7 @@ const Login = ({navigation}) => {
                 <Button 
                     text="Giriş Yap" 
                     loading={loading}
+                    onPress={handleSubmit}
                 />
                 <TouchableOpacity
                   onPress={() => navigation.navigate('ForgotPassword')}

@@ -4,22 +4,23 @@ import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FlashMessage from "react-native-flash-message";
 
-import HomePage from './pages/auth/HomePage';
+import FirstPage from './pages/auth/FirstPage';
 import SignIn from './pages/auth/SignIn';
 import Login from './pages/auth/Login';
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import NewPassword from "./pages/auth/NewPassword";
 import ConfirmSignInMail from "./pages/auth/ConfirmSignInMail";
+import HomePage from "./pages/user/HomePage";
 
 const Stack = createNativeStackNavigator();
 
 function App(){
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomePage" screenOptions={{ headerShown:false }} >
+      <Stack.Navigator initialRouteName="FirstPage" screenOptions={{ headerShown:false }} >
           <Stack.Screen 
-                name="HomePage" 
-                component={HomePage} 
+                name="FirstPage" 
+                component={FirstPage} 
            />
           <Stack.Screen 
                 name="SignIn" 
@@ -40,6 +41,10 @@ function App(){
            <Stack.Screen 
                 name="ConfirmSignInMail" 
                 component={ConfirmSignInMail}
+           />
+           <Stack.Screen 
+                name="HomePage" 
+                component={HomePage}
            />
       </Stack.Navigator>
       <FlashMessage position="top" />
