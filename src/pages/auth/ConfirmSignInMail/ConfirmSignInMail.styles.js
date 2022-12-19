@@ -20,6 +20,7 @@ export default StyleSheet.create({
         fontFamily:'RopaSans-Regular',
         fontWeight:'bold',
         fontSize:20,
-        color:'#737373' 
+        color:'#737373' ,
+        alignSelf:'center'
     }
 });

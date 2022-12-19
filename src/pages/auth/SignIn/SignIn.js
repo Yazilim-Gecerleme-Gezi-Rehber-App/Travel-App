@@ -6,7 +6,6 @@ import Button from "../../../components/Button";
 import { Formik } from "formik";
 import auth from '@react-native-firebase/auth';
 import { showMessage } from "react-native-flash-message";
-import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 
 const initialFormValues = {
     username: '',
@@ -37,7 +36,7 @@ const SignIn = ({navigation}) => {
                 message: 'Kullanıcı Kaydı Başarılı!',
                 type: 'success',
             });
-            navigation.navigate('ConfirmSignInMail');
+            navigation.navigate('Login');
             setLoading(false);
         } catch (error) {
             setLoading(false);

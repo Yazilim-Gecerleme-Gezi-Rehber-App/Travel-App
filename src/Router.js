@@ -1,8 +1,8 @@
-import React from "react";
-import {Text, View, Button} from 'react-native';
-import {NavigationContainer, StackActions} from '@react-navigation/native';
+import React, {useState, useEffect} from "react";
+import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FlashMessage from "react-native-flash-message";
+import {firebase} from '../config';
 
 import FirstPage from './pages/auth/FirstPage';
 import SignIn from './pages/auth/SignIn';
@@ -15,6 +15,22 @@ import HomePage from "./pages/user/HomePage";
 const Stack = createNativeStackNavigator();
 
 function App(){
+  //for verification mail
+//   const [initializing, setInitializing] = useState(true);
+//   const [user, setUser] = useState();
+
+//   function onAuthStateChanged(user){
+//      setUser(user);
+//      if(initializing) setInitializing(false);
+//   }
+
+//   useEffect(() => {
+//      const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
+//      return subscriber;
+//   },[]);
+
+//   if(initializing) return null;
+
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FirstPage" screenOptions={{ headerShown:false }} >

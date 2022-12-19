@@ -101,8 +101,9 @@ const FirstPage = ({navigation}) => {
                   onPress={() => navigation.navigate('SignIn')}
                   text="Kayıt Ol"
                 />
+                {/* yazısı beyaz gözükmüyor hesap çıkışı burası en son bir yere ekleyeceksin */}
                 <TouchableOpacity onPress={signOut}>
-                  <Text style={{ alignSelf:'center' }}>Oturumunu Kapat!</Text>
+                  <Text style={{ alignSelf:'center', color:'white' }}>Oturumunu Kapat!</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.footer_container}>

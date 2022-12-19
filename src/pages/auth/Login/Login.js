@@ -47,7 +47,8 @@ const Login = ({navigation}) => {
                 <Input 
                     value={values.usermail} 
                     onType={handleChange('usermail')}
-                    placeholder="E-Mailiniz" 
+                    placeholder="E-Mailiniz"
+                    autoCorrect={false} 
                 />
                 <Text style={styles.lineStyle}>Şifreniz</Text>
                 <Input
@@ -55,6 +56,7 @@ const Login = ({navigation}) => {
                     onType={handleChange('password')}
                     placeholder="Şifreniz"
                     secureTextEntry={true}
+                    autoCorrect={false}
                 />
                 <Button 
                     text="Giriş Yap" 
