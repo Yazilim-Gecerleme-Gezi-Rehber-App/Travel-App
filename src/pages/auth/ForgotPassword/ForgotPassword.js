@@ -46,25 +46,6 @@ const ForgotPassword = ({navigation}) => {
         }
     };
 
-    // const resetPassword = () => {
-    //     auth().sendPasswordResetEmail(auth, mail)
-    //     .then(() => {
-    //         showMessage({
-    //             message: "Mail Hesabınıza Sıfırlama Maili Gönderilmiştir.Lütfen Mail Kutunuzu Kontrol Ediniz!",
-    //             type:'success'
-    //         });
-    //     })
-    //     .catch((error) => {
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //         showMessage({
-    //             message: (errorMessage),
-    //             type:'danger'
-    //         });
-    //     });
-    //     navigation.navigate('NewPassword');
-    // };
-
     return(
         <View style={styles.container}>
             <Text style={styles.header}>Şifremi Unuttum</Text>
