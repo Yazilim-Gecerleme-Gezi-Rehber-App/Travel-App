@@ -38,6 +38,7 @@ const FirstPage = ({navigation}) => {
     const signIn = async () => {
         const { idToken } = await GoogleSignin.signIn();
         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+        navigation.navigate('HomePage');
         return auth().signInWithCredential(googleCredential);
     };
 
@@ -65,6 +66,7 @@ const FirstPage = ({navigation}) => {
       }
 
       const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+      navigation.navigate('HomePage');
       return auth().signInWithCredential(facebookCredential);
     };
 

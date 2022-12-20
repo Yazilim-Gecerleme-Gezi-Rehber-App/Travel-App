@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
             showMessage({
                 message: authErrorMessageParser(error.code),
                 type:'danger'
-            })
+            });
             setLoading(false);
         }
     };

@@ -15,22 +15,6 @@ import HomePage from "./pages/user/HomePage";
 const Stack = createNativeStackNavigator();
 
 function App(){
-  //for verification mail
-//   const [initializing, setInitializing] = useState(true);
-//   const [user, setUser] = useState();
-
-//   function onAuthStateChanged(user){
-//      setUser(user);
-//      if(initializing) setInitializing(false);
-//   }
-
-//   useEffect(() => {
-//      const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
-//      return subscriber;
-//   },[]);
-
-//   if(initializing) return null;
-
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FirstPage" screenOptions={{ headerShown:false }} >
@@ -47,7 +31,7 @@ function App(){
                 component={Login} 
            />
            <Stack.Screen 
-                name="ResetPassword" 
+                name="ForgotPassword" 
                 component={ForgotPassword} 
            />
            <Stack.Screen 
