@@ -11,6 +11,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import NewPassword from "./pages/auth/NewPassword";
 import ConfirmSignInMail from "./pages/auth/ConfirmSignInMail";
 import HomePage from "./pages/user/HomePage";
+import ActivitiesList from './pages/user/ActivitiesList';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,10 @@ function App(){
            <Stack.Screen 
                 name="HomePage" 
                 component={HomePage}
+           />
+           <Stack.Screen 
+                name="ActivitiesList" 
+                component={ActivitiesList}
            />
       </Stack.Navigator>
       <FlashMessage position="top" />

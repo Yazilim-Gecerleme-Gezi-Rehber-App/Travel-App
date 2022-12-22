@@ -85,10 +85,10 @@ project.ext.react = [
 apply from: "../../node_modules/react-native/react.gradle"
 
 //for vector icons
- apply from:"../../node_modules/react-native-vector-icons/fonts.gradle"
+apply from:"../../node_modules/react-native-vector-icons/fonts.gradle"
 
 project.ext.vectoricons = [
-    iconFontNames: [ 'MaterialCommunityIcons.ttf' ] 
+    iconFontNames: [ 'MaterialCommunityIcons.ttf' ]
 ]
 
 //for firebase database

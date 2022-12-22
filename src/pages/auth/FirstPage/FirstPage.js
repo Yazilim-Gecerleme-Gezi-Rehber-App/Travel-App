@@ -85,7 +85,7 @@ const FirstPage = ({navigation}) => {
                   .catch(error => console.log(error))}
                 >
                   <Icon name="google" size={35} />
-                  <Text style={styles.google_text}>Google İle Kayıt Ol</Text>
+                  <Text style={styles.google_text}>Google İle Oturum Aç</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
                   style={styles.facebook}
@@ -97,7 +97,7 @@ const FirstPage = ({navigation}) => {
                     .catch(error => console.log(error))}
                 >
                   <Icon name="facebook" size={40} />
-                  <Text style={styles.facebook_text}>Facebook İle Kayıt Ol</Text>
+                  <Text style={styles.facebook_text}>Facebook İle Oturum Aç</Text>
                 </TouchableOpacity>
                 <Button 
                   onPress={() => navigation.navigate('SignIn')}
