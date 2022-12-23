@@ -2,6 +2,22 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/BlackHanSans-Regular.ttf",
+      "sha1": "6c790fc4f29b6aa047d2c4ea3172570a3a4e770a"
+    },
+    {
+      "path": "assets/fonts/LilitaOne-Regular.ttf",
+      "sha1": "3a4f50ed3543a0d3291ef171aeee5408072559bd"
+    },
+    {
+      "path": "assets/fonts/Lobster-Regular.ttf",
+      "sha1": "120c751cd7a77174037c2409ab883ef7efc5edbb"
+    },
+    {
+      "path": "assets/fonts/RopaSans-Regular.ttf",
+      "sha1": "3dc168716eee48a9d204fd14e9e7afc447148fb4"
+    },
+    {
       "path": "assets/fonts/ZenDots-Regular.ttf",
       "sha1": "77a272f37fd2c260477469b6fe8fa5c5dea890e9"
     }

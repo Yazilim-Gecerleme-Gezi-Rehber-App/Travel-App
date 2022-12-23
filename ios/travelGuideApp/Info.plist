@@ -54,6 +54,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>ZenDots-Regular.ttf</string>
+		<string>BlackHanSans-Regular.ttf</string>
+		<string>LilitaOne-Regular.ttf</string>
+		<string>Lobster-Regular.ttf</string>
+		<string>RopaSans-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -5,11 +5,12 @@ export default StyleSheet.create({
 
     },
     header:{
-        fontFamily:'ZenDots-Regular',
-        fontSize:22,
+        fontFamily:'PalanquinDark-Regular',
+        fontSize:30,
         alignSelf:'center',
-        marginTop:30,
+        marginTop:25,
         color:'#ffd633',
+        fontWeight:'bold'
     },
     lineStyle:{
         marginHorizontal:12,

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   dropdown: {
-    margin: 16,
+    margin: 18,
     height: 50,
     backgroundColor: 'white',
     borderRadius: 12,
@@ -17,28 +17,22 @@ export default StyleSheet.create({
 
     elevation: 2,
   },
-  item: {
-    padding: 17,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  textItem: {
-    flex: 1,
+  placeholderStyle: {//placeholder
     fontSize: 16,
+    fontWeight:'bold'
   },
-  placeholderStyle: {
+  selectedTextStyle: {//listeden seçilen özellik
     fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
+    color:'#ffd017'
   },
   iconStyle: {
     width: 20,
     height: 20,
   },
-  inputSearchStyle: {
+  inputSearchStyle: {//arama çubuğu
     height: 40,
     fontSize: 16,
+    borderColor:'gray',
+    borderRadius:5
   },
 });
