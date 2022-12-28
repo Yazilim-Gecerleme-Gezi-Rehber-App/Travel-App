@@ -1,12 +1,9 @@
 import React, {useState} from "react";
 import {Text, View, Image} from 'react-native';
 import styles from './HomePage.styles';
-import auth from '@react-native-firebase/auth';
-import { showMessage } from "react-native-flash-message";
-import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 import Dropdowns from '../../../components/Dropdowns';
 import Button from '../../../components/Button';
-import {ImageBackground} from 'react-native';//arka planı resim yapmak için
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 const cityData = [
     {key:'1', value:'Adana'},{key:'2', value:'Adıyaman'},{key:'3', value:'Afyonkarahisar'},{key:'4', value:'Ağrı'},{key:'5', value:'Amasya'},{key:'6', value:'Ankara'},{key:'7', value:'Antalya'},{key:'8', value:'Artvin'},{key:'9', value:'Aydın'},{key:'10', value:'Balıkesir'},
@@ -40,9 +37,10 @@ const activities = [
 ];
 
 const HomePage = ({navigation}) => {
-    const [keyCity, setKeyCity] = useState(null);
+    const [keyCity, setKeyCity] = useState('');
     const [keyDay, setKeyDay] = useState(null);
     const [keyActivities, setKeyActivities] = useState(null);
+
 
     const renderItem = (item) => {
         return (
@@ -51,6 +49,12 @@ const HomePage = ({navigation}) => {
           </View>
         );
     };
+
+    // function navigateToPage(){
+    //     props.navigation.navigate('ActivitiesList',{
+    //         sendCityName : item => setKeyCity(item.keyCity)
+    //     })
+    // }
 
     return (
         <View style={styles.container}>
@@ -64,6 +68,7 @@ const HomePage = ({navigation}) => {
                     renderItem={renderItem}
                     value={keyCity}
                     data={cityData}
+                    mode="contained"
                     onChange={item => {
                         setKeyCity(item.keyCity);
                     }}

@@ -69,6 +69,7 @@ const SignIn = ({navigation}) => {
                 value={values.usermail} 
                 onType={handleChange('usermail')}
                 placeholder="E-Mailiniz"
+                type="email"
               />
 
               <Text style={styles.lineStyle}>Şifreniz</Text>

@@ -49,6 +49,7 @@ const Login = ({navigation}) => {
                     onType={handleChange('usermail')}
                     placeholder="E-Mailiniz"
                     autoCorrect={false} 
+                    type="email"
                 />
                 <Text style={styles.lineStyle}>Şifreniz</Text>
                 <Input

@@ -59,6 +59,7 @@ const ForgotPassword = ({navigation}) => {
                                 placeholder="E-Mailiniz"
                                 onType={handleChange('mail')}
                                 autoCorrect={false}
+                                type="email"
                             />
                             <Button
                                 onPress={handleSubmit}
