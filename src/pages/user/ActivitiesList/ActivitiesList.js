@@ -3,11 +3,12 @@ import {Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import styles from './ActivitiesList.styles';
 import { useRoute } from "@react-navigation/native";
 
-const ActivitiesList = () => {
+const ActivitiesList = ({route}) => {
+  console.log("Gelen Veri: ",route.params.selectedCity);
     return (
       <View style={styles.container}>
         <Image source={require('../../../components/assets/back-gray-blur.jpg')} style={styles.background}/>
-        <Text style={styles.cityName}>ELAZIĞ</Text>
+        <Text style={styles.cityName}>{route.params?.selectedCity}</Text>
         <ScrollView>
           <TouchableOpacity style={styles.images_container}>
             <View style={styles.body_container}>

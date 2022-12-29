@@ -32,15 +32,19 @@ const activities = [
     {key: '2', value: 'Tarihi Yerler'},
     {key: '3', value: 'Müzeler'},
     {key: '4', value: 'Yeme-İçme'},
-    {key: '5', value: 'Deniz Kum Güneş'},
-    {key: '6', value: 'Meşhur Yerler'}
+    {key: '5', value: 'Meşhur Yerler'}
 ];
 
-const HomePage = ({navigation}) => {
+const HomePage = () => {
     const [keyCity, setKeyCity] = useState('');
     const [keyDay, setKeyDay] = useState(null);
     const [keyActivities, setKeyActivities] = useState(null);
 
+    const [selectedCity, setSelectedCity] = useState('');
+    const [selectedDay, setSelectedDay] = useState('');
+    const [selectedActivities, setSelectedActivities] = useState('');
+
+    const navigation = useNavigation();
 
     const renderItem = (item) => {
         return (
@@ -55,7 +59,6 @@ const HomePage = ({navigation}) => {
     //         sendCityName : item => setKeyCity(item.keyCity)
     //     })
     // }
-
     return (
         <View style={styles.container}>
             <Image source={require('../../../components/assets/image-pisa.jpg')} style={styles.image}/>
@@ -68,10 +71,11 @@ const HomePage = ({navigation}) => {
                     renderItem={renderItem}
                     value={keyCity}
                     data={cityData}
-                    mode="contained"
-                    onChange={item => {
-                        setKeyCity(item.keyCity);
-                    }}
+                    //çift tıklayınca seçilmiş oluyor şehir bundaki metotta
+                    // onChange={item => {
+                    //     setKeyCity(item.keyCity);
+                    // }}
+                    onChange={item => {setSelectedCity(item.value)}}
                 />
                 <Dropdowns
                     valueField="key"
@@ -80,9 +84,7 @@ const HomePage = ({navigation}) => {
                     renderItem={renderItem}
                     value={keyDay}
                     data={countDay}
-                    onChange={item => {
-                        setKeyDay(item.keyDay);
-                    }}
+                    onChange={item => {setSelectedDay(item.value)}}
                 />
                 <Dropdowns
                     valueField="key"
@@ -91,16 +93,18 @@ const HomePage = ({navigation}) => {
                     renderItem={renderItem}
                     value={keyActivities}
                     data={activities}
-                    onChange={item => {
-                        setKeyActivities(item.keyActivities);
-                    }}
+                    onChange={item => {setSelectedActivities(item.value)}}
                 />
             </View>
             <View style={styles.footer_container}>
                 <Button
                     style={styles.button}
                     text="Rota Oluştur"
-                    onPress={() => navigation.navigate('ActivitiesList')}
+                    onPress={() => navigation.navigate({
+                        name: 'ActivitiesList',
+                        params :{selectedCity : selectedCity},
+                        merge:true
+                    })}
                 />
             </View>
         </View>
