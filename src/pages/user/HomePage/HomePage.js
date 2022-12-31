@@ -4,6 +4,7 @@ import styles from './HomePage.styles';
 import Dropdowns from '../../../components/Dropdowns';
 import Button from '../../../components/Button';
 import {useNavigation, useRoute} from '@react-navigation/native';
+import firestore from '@react-native-firebase/firestore';
 
 const cityData = [
     {key:'1', value:'Adana'},{key:'2', value:'Adıyaman'},{key:'3', value:'Afyonkarahisar'},{key:'4', value:'Ağrı'},{key:'5', value:'Amasya'},{key:'6', value:'Ankara'},{key:'7', value:'Antalya'},{key:'8', value:'Artvin'},{key:'9', value:'Aydın'},{key:'10', value:'Balıkesir'},
@@ -17,31 +18,28 @@ const cityData = [
     {key:'81', value:'Düzce'}
 ];
   
-const countDay = [
-    {key:'1', value:'1'},
-    {key:'1', value:'2'},
-    {key:'1', value:'3'},
-    {key:'1', value:'4'},
-    {key:'1', value:'5'},
-    {key:'1', value:'6'},
-    {key:'1', value:'7'}
-];
+// const countDay = [
+//     {key:'1', value:'1'},
+//     {key:'1', value:'2'},
+//     {key:'1', value:'3'},
+//     {key:'1', value:'4'},
+//     {key:'1', value:'5'},
+//     {key:'1', value:'6'},
+//     {key:'1', value:'7'}
+// ];
   
 const activities = [
     {key: '1', value: 'Spor Aktiviteleri'},
     {key: '2', value: 'Tarihi Yerler'},
     {key: '3', value: 'Müzeler'},
-    {key: '4', value: 'Yeme-İçme'},
-    {key: '5', value: 'Meşhur Yerler'}
+    {key: '4', value: 'Yeme-İçme'}
 ];
 
 const HomePage = () => {
     const [keyCity, setKeyCity] = useState('');
-    const [keyDay, setKeyDay] = useState(null);
     const [keyActivities, setKeyActivities] = useState(null);
 
     const [selectedCity, setSelectedCity] = useState('');
-    const [selectedDay, setSelectedDay] = useState('');
     const [selectedActivities, setSelectedActivities] = useState('');
 
     const navigation = useNavigation();
@@ -54,11 +52,6 @@ const HomePage = () => {
         );
     };
 
-    // function navigateToPage(){
-    //     props.navigation.navigate('ActivitiesList',{
-    //         sendCityName : item => setKeyCity(item.keyCity)
-    //     })
-    // }
     return (
         <View style={styles.container}>
             <Image source={require('../../../components/assets/image-pisa.jpg')} style={styles.image}/>
@@ -71,20 +64,7 @@ const HomePage = () => {
                     renderItem={renderItem}
                     value={keyCity}
                     data={cityData}
-                    //çift tıklayınca seçilmiş oluyor şehir bundaki metotta
-                    // onChange={item => {
-                    //     setKeyCity(item.keyCity);
-                    // }}
                     onChange={item => {setSelectedCity(item.value)}}
-                />
-                <Dropdowns
-                    valueField="key"
-                    labelField="value"
-                    placeholder="Kaç Gün Gezeceksiniz?"
-                    renderItem={renderItem}
-                    value={keyDay}
-                    data={countDay}
-                    onChange={item => {setSelectedDay(item.value)}}
                 />
                 <Dropdowns
                     valueField="key"
@@ -102,7 +82,7 @@ const HomePage = () => {
                     text="Rota Oluştur"
                     onPress={() => navigation.navigate({
                         name: 'ActivitiesList',
-                        params :{selectedCity : selectedCity},
+                        params :{selectedCity, selectedActivities },
                         merge:true
                     })}
                 />
@@ -110,5 +90,17 @@ const HomePage = () => {
         </View>
     );
 };
+
+
+// firestore()
+// .collection('Spor Aktivitileri')
+// .doc('Hazarbaba Kayak Merkezi')
+// .get()
+// .then(documentSnapshot => {
+//     console.log('User exists: ', documentSnapshot.exists);
+//     if (documentSnapshot.exists) {
+//       console.log('User data: ',documentSnapshot.data());
+//     }
+// });
 
 export default HomePage;

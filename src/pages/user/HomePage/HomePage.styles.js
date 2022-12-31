@@ -22,7 +22,7 @@ export default StyleSheet.create({
         color:'#ffd633',
     },
     body_container:{
-        marginVertical:35
+        marginVertical:60
     },
     footer_container:{
         marginVertical:70

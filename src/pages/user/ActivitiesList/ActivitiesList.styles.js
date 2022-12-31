@@ -20,11 +20,9 @@ export default StyleSheet.create({
         fontFamily:'Lobster-Regular',
         color:'#FFBF00'
     },
-    images_container:{
-        marginVertical:20,
-        marginHorizontal:20
-    },
     body_container:{
+        marginTop:20,
+        marginHorizontal:20,
         flexDirection:'row',
         alignItems:'center',
     },
@@ -41,12 +39,11 @@ export default StyleSheet.create({
         fontFamily:'LilitaOne-Regular',
         color:'#FFBF00'
     },
-    line:{
-        borderBottomColor: '#FFBF00',
-        borderColor:'#FFBF00',
-        // borderBottomWidth: StyleSheet.hairlineWidth,
-        borderWidth:1.3,
-        marginLeft:45,
-        marginTop:-2.4
-    }
+    // line: {
+    //     borderBottomWidth: 2,
+    //     borderBottomColor: '#FFBF00',
+    //     width: 400,
+    //     paddingTop:100,
+    //     marginLeft:-200
+    // }
 });
