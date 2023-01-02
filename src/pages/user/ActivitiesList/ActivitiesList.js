@@ -10,6 +10,9 @@ const ActivitiesList = ({route}) => {
   // console.log("Gelen Aktivite: ",route.params.selectedActivities);
 
   const [sports, setSports] = useState();
+  const [historic, setHistoric] = useState();
+  const [museum, setMuseum] = useState();
+
   const [loading, setLoading] = useState(true);
 
   const getSportActivities = () => {
@@ -26,14 +29,62 @@ const ActivitiesList = ({route}) => {
     }
   };
 
+  const getHistoricalPlaces = () => {
+    if (route.params.selectedActivities == 'Tarihi Yerler' && route.params.selectedCity == 'Elazığ') {
+      return firestore()
+        .collection('Tarihi Yerler')
+        .get()
+        .then(hist => {
+          const historic = [];
+          hist.forEach(h => historic.push(h.data()));
+          return historic;
+        })
+        .catch(err => err);
+    }
+  };
+
+  const getMuseums = () => {
+    if (route.params.selectedActivities == 'Müzeler' && route.params.selectedCity == 'Elazığ') {
+      return firestore()
+        .collection('Müzeler')
+        .get()
+        .then(mus => {
+          const museum = [];
+          mus.forEach(h => museum.push(h.data()));
+          return museum;
+        })
+        .catch(err => err);
+    }
+  };
+
   useEffect(() => {
-    getSportActivities()
-    .then(sp => 
+    if (route.params.selectedActivities == 'Spor Aktiviteleri'){
+      getSportActivities()
+      .then((sp)=>
       setSports(sp),
       setLoading(false)
-    )
-    .catch(err => Alert.alert(err.code, err.message))
-  })
+      )
+      .catch(err => Alert.alert(err.code, err.message))
+    }
+    
+    else if(route.params.selectedActivities == 'Tarihi Yerler'){
+      getHistoricalPlaces()
+      .then((hs) => 
+      setHistoric(hs),
+      setLoading(false)
+      )
+      .catch(err => Alert.alert(err.code, err.message))
+    }
+
+    else if(route.params.selectedActivities == 'Müzeler'){
+      getMuseums()
+      .then((ms) => 
+      setMuseum(ms),
+      setLoading(false)
+      )
+      .catch(err => Alert.alert(err.code, err.message))
+    }
+  });
 
   if(loading){
     return <ActivityIndicator color='#00ff00' size='large' />
@@ -54,7 +105,30 @@ const ActivitiesList = ({route}) => {
               <Image style={styles.image} source={{uri: data.imgUrl}} />
               <Text style={styles.name}>{data.name}</Text>
             </View>
-          ))}
+          ))
+        }
+      </ScrollView>
+      <ScrollView>
+        {historic &&
+          historic.map((data, index) => (
+            <View key={index} style={styles.body_container}>
+              {console.log('name :', data.name)}
+              <Image style={styles.image} source={{uri: data.imgUrl}} />
+              <Text style={styles.name}>{data.name}</Text>
+            </View>
+          ))
+        }
+      </ScrollView>
+      <ScrollView>
+        {museum &&
+          museum.map((data, index) => (
+            <View key={index} style={styles.container_museum}>
+              {console.log('name :', data.name)}
+              <Image style={styles.image} source={{uri: data.imgUrl}} />
+              <Text style={styles.name}>{data.name}</Text>
+            </View>
+          ))
+        }
       </ScrollView>
     </View>
   );

@@ -26,6 +26,12 @@ export default StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
     },
+    container_museum:{
+        marginTop:20,
+        marginHorizontal:10,
+        flexDirection:'row',
+        backgroundColor:'red',
+    },
     image:{
         width:100,
         height:100,
@@ -37,7 +43,8 @@ export default StyleSheet.create({
         fontSize:20,
         marginLeft:10,
         fontFamily:'LilitaOne-Regular',
-        color:'#FFBF00'
+        color:'#FFBF00',
+        alignSelf:'center'
     },
     // line: {
     //     borderBottomWidth: 2,

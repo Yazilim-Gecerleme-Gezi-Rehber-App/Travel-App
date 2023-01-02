@@ -18,16 +18,6 @@ const cityData = [
     {key:'81', value:'Düzce'}
 ];
   
-// const countDay = [
-//     {key:'1', value:'1'},
-//     {key:'1', value:'2'},
-//     {key:'1', value:'3'},
-//     {key:'1', value:'4'},
-//     {key:'1', value:'5'},
-//     {key:'1', value:'6'},
-//     {key:'1', value:'7'}
-// ];
-  
 const activities = [
     {key: '1', value: 'Spor Aktiviteleri'},
     {key: '2', value: 'Tarihi Yerler'},
