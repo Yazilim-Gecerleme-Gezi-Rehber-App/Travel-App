@@ -12,6 +12,7 @@ const ActivitiesList = ({route}) => {
   const [sports, setSports] = useState();
   const [historic, setHistoric] = useState();
   const [museum, setMuseum] = useState();
+  const [eat, setEat] = useState();
 
   const [loading, setLoading] = useState(true);
 
@@ -57,6 +58,20 @@ const ActivitiesList = ({route}) => {
     }
   };
 
+  const getEats = () => {
+    if (route.params.selectedActivities == 'Yeme-İçme' && route.params.selectedCity == 'Elazığ') {
+      return firestore()
+        .collection('Yeme-İçme')
+        .get()
+        .then(et => {
+          const eat = [];
+          et.forEach(e => eat.push(e.data()));
+          return eat;
+        })
+        .catch(err => err);
+    }
+  };
+
   useEffect(() => {
     if (route.params.selectedActivities == 'Spor Aktiviteleri'){
       getSportActivities()
@@ -66,7 +81,6 @@ const ActivitiesList = ({route}) => {
       )
       .catch(err => Alert.alert(err.code, err.message))
     }
-    
     else if(route.params.selectedActivities == 'Tarihi Yerler'){
       getHistoricalPlaces()
       .then((hs) => 
@@ -75,11 +89,18 @@ const ActivitiesList = ({route}) => {
       )
       .catch(err => Alert.alert(err.code, err.message))
     }
-
     else if(route.params.selectedActivities == 'Müzeler'){
       getMuseums()
       .then((ms) => 
       setMuseum(ms),
+      setLoading(false)
+      )
+      .catch(err => Alert.alert(err.code, err.message))
+    }
+    else{
+      getEats()
+      .then((et) => 
+      setEat(et),
       setLoading(false)
       )
       .catch(err => Alert.alert(err.code, err.message))
@@ -97,7 +118,7 @@ const ActivitiesList = ({route}) => {
         style={styles.background}
       />
       <Text style={styles.cityName}>{route.params?.selectedCity}</Text>
-      <ScrollView>
+      <ScrollView style={styles.scroll}>
         {sports &&
           sports.map((data, index) => (
             <View key={index} style={styles.body_container}>
@@ -105,8 +126,7 @@ const ActivitiesList = ({route}) => {
               <Image style={styles.image} source={{uri: data.imgUrl}} />
               <Text style={styles.name}>{data.name}</Text>
             </View>
-          ))
-        }
+          ))}
       </ScrollView>
       <ScrollView>
         {historic &&
@@ -116,19 +136,27 @@ const ActivitiesList = ({route}) => {
               <Image style={styles.image} source={{uri: data.imgUrl}} />
               <Text style={styles.name}>{data.name}</Text>
             </View>
-          ))
-        }
+          ))}
       </ScrollView>
-      <ScrollView>
+      <ScrollView style={styles.museum}>
         {museum &&
           museum.map((data, index) => (
-            <View key={index} style={styles.container_museum}>
+            <View key={index} style={styles.body_container}>
               {console.log('name :', data.name)}
               <Image style={styles.image} source={{uri: data.imgUrl}} />
               <Text style={styles.name}>{data.name}</Text>
             </View>
-          ))
-        }
+          ))}
+      </ScrollView>
+      <ScrollView style={styles.eat}>
+        {eat &&
+          eat.map((data, index) => (
+            <View key={index} style={styles.body_container}>
+              {console.log('name :', data.name)}
+              <Image style={styles.image} source={{uri: data.imgUrl}} />
+              <Text style={styles.name}>{data.name}</Text>
+            </View>
+          ))}
       </ScrollView>
     </View>
   );

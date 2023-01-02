@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet,Dimensions } from "react-native";
 
 export default StyleSheet.create({
     container:{
@@ -22,15 +22,9 @@ export default StyleSheet.create({
     },
     body_container:{
         marginTop:20,
-        marginHorizontal:20,
-        flexDirection:'row',
-        alignItems:'center',
-    },
-    container_museum:{
-        marginTop:20,
         marginHorizontal:10,
         flexDirection:'row',
-        backgroundColor:'red',
+        alignItems:'center',
     },
     image:{
         width:100,
@@ -45,12 +39,5 @@ export default StyleSheet.create({
         fontFamily:'LilitaOne-Regular',
         color:'#FFBF00',
         alignSelf:'center'
-    },
-    // line: {
-    //     borderBottomWidth: 2,
-    //     borderBottomColor: '#FFBF00',
-    //     width: 400,
-    //     paddingTop:100,
-    //     marginLeft:-200
-    // }
+    }
 });
