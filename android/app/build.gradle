@@ -273,6 +273,15 @@ dependencies {
 
     implementation 'androidx.multidex:multidex:2.0.1' // for db firestore-hint videos
 
+    // for google maps
+    implementation(project(':react-native-maps')){
+      exclude group: 'com.google.android.gms', module: 'play-services-base'
+      exclude group: 'com.google.android.gms', module: 'play-services-maps'
+    }
+    implementation 'com.google.android.gms:play-services-base:18.0.1'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }

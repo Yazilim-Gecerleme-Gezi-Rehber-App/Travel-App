@@ -3,6 +3,7 @@ import {Text, View, Image, TouchableOpacity, ScrollView, ActivityIndicator} from
 import styles from './ActivitiesList.styles';
 import { useRoute } from "@react-navigation/native";
 import firestore from '@react-native-firebase/firestore';
+import {useNavigation} from '@react-navigation/native';
 
 
 const ActivitiesList = ({route}) => {
@@ -15,6 +16,8 @@ const ActivitiesList = ({route}) => {
   const [eat, setEat] = useState();
 
   const [loading, setLoading] = useState(true);
+
+  const navigation = useNavigation();
 
   const getSportActivities = () => {
     if (route.params.selectedActivities == 'Spor Aktiviteleri' && route.params.selectedCity == 'Elazığ') {
@@ -117,7 +120,16 @@ const ActivitiesList = ({route}) => {
         source={require('../../../components/assets/back-gray-blur.jpg')}
         style={styles.background}
       />
-      <Text style={styles.cityName}>{route.params?.selectedCity}</Text>
+      <View style={styles.header}>
+        <Text style={styles.cityName}>{route.params?.selectedCity}</Text>
+        <TouchableOpacity 
+          style={styles.route_box} 
+          onPress={() => navigation.navigate('MapPage')}
+        >
+          <Image style={styles.route_img} source={require('../../../components/assets/maps.jpg')} />
+          <Text style={styles.text}>Rotanı Gör</Text>
+        </TouchableOpacity>
+      </View>
       <ScrollView style={styles.scroll}>
         {sports &&
           sports.map((data, index) => (
@@ -138,10 +150,10 @@ const ActivitiesList = ({route}) => {
             </View>
           ))}
       </ScrollView>
-      <ScrollView style={styles.museum}>
+      <ScrollView>
         {museum &&
           museum.map((data, index) => (
-            <View key={index} style={styles.body_container}>
+            <View key={index} style={styles.museum_container}>
               {console.log('name :', data.name)}
               <Image style={styles.image} source={{uri: data.imgUrl}} />
               <Text style={styles.name}>{data.name}</Text>

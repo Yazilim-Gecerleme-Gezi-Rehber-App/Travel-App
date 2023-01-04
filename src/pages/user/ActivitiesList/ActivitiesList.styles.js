@@ -2,7 +2,8 @@ import { StyleSheet,Dimensions } from "react-native";
 
 export default StyleSheet.create({
     container:{
-        flex:1
+        flex:1,
+        backgroundColor:'black',
     },
     background:{
         position:'absolute',
@@ -12,6 +13,26 @@ export default StyleSheet.create({
         top:0, 
         left:0, 
         bottom:0
+    },
+    header:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    route_box:{
+        marginRight:10,
+        marginTop:10
+    },
+    route_img:{
+        height:60,
+        width:60,
+        borderWidth:2,
+        borderRadius:10,
+        borderColor:'#4D96FF'
+    },
+    text:{
+        fontSize:14,
+        fontFamily:'LilitaOne-Regular',
+        color:'#0081C9'
     },
     cityName:{
         fontSize:25,
@@ -24,7 +45,11 @@ export default StyleSheet.create({
         marginTop:20,
         marginHorizontal:10,
         flexDirection:'row',
-        alignItems:'center',
+    },
+    museum_container:{
+        marginTop:20,
+        marginHorizontal:10,
+        flexDirection:'row',
     },
     image:{
         width:100,

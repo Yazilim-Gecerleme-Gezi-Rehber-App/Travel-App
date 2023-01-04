@@ -12,6 +12,7 @@ import NewPassword from "./pages/auth/NewPassword";
 import ConfirmSignInMail from "./pages/auth/ConfirmSignInMail";
 import HomePage from "./pages/user/HomePage";
 import ActivitiesList from './pages/user/ActivitiesList';
+import MapPage from "./pages/user/MapPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +51,10 @@ function App(){
            <Stack.Screen 
                 name="ActivitiesList" 
                 component={ActivitiesList}
+           />
+           <Stack.Screen 
+                name="MapPage" 
+                component={MapPage}
            />
       </Stack.Navigator>
       <FlashMessage position="top" />
