@@ -19,7 +19,7 @@ const Stack = createNativeStackNavigator();
 function App(){
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstPage" screenOptions={{ headerShown:false }} >
+      <Stack.Navigator initialRouteName="HomePage" screenOptions={{ headerShown:false }} >
           <Stack.Screen 
                 name="FirstPage" 
                 component={FirstPage} 
