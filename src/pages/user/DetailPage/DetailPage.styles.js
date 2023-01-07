@@ -4,17 +4,39 @@ export default StyleSheet.create({
     container:{
         flex:1
     },
+    background:{
+        position:'absolute',
+        width:400, 
+        height:800, 
+        right:0, 
+        top:0, 
+        left:0, 
+        bottom:0
+    },
     body_container:{
-
+        flexDirection:'column'
     },
     image:{
-        width:Dimensions.get('window').width/0.8,
-        height:Dimensions.get('window').height/1.5
+        width:Dimensions.get('window').width/1.1,
+        height:Dimensions.get('window').height/2,
+        borderRadius:500,
+        borderWidth:3,
+        borderColor:'#cc9900',
+        marginLeft:17,
     },
     header:{
-
+        fontSize:25,
+        fontFamily:'LilitaOne-Regular',
+        color:'#1a1a1a',
+        alignSelf:'center',
+        marginVertical:10
     },
     description:{
-
+        fontSize:16,
+        fontFamily:'Righteous-Regular',
+        color:'#1a1a1a',
+        textAlign:'justify',
+        marginHorizontal:10,
+        fontWeight:'bold'
     }
 });
