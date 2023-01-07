@@ -3,15 +3,19 @@ import {Text, View, Image, TouchableOpacity, ScrollView, ActivityIndicator, Aler
 import styles from './ActivitiesList.styles';
 import firestore from '@react-native-firebase/firestore';
 import {useNavigation} from '@react-navigation/native';
-import {Activity} from '../../../services';
+import {Activity} from '../../../services/activities';
 
-const ActivitiesList = ({route}) => {
+const ActivitiesList = ({route,brand,amount}) => {
   // console.log("Gelen Şehir: ",route.params.selectedCity);
   // console.log("Gelen Aktivite: ",route.params.selectedActivities);
 
   const [activity, setActivity] = useState('');
+  const [selectedActivity, setSelectedActivity] = useState('');
+  const [keyActivity, setKeyActivity] = useState(null);
 
   const [loading, setLoading] = useState(true);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     if(route.params.selectedActivities == 'Spor Aktiviteleri' && route.params.selectedCity == 'Elazığ'){
@@ -65,7 +69,11 @@ const ActivitiesList = ({route}) => {
             <TouchableOpacity 
               key={index} 
               style={styles.body_container} 
-              onPress={() => NavigationPreloadManager.navigate({})}
+              onPress={() => navigation.navigate({
+                name: 'DetailPage',
+                params :data.name,
+                merge:true
+              })}
             >
               <Image style={styles.image} source={{uri: data.imgUrl}} />
               <Text style={styles.name}>{data.name}</Text>
