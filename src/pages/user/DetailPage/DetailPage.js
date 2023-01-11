@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import { View, Text, Image, Alert, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Image, Alert, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
 import styles from './DetailPage.styles';
 import { useNavigation } from '@react-navigation/native';
 import {ActivityDetail} from '../../../services/activitiesDetail';
@@ -8,6 +8,8 @@ const DetailPage = ({route}) => {
   // console.log('seçilen aktivite :',route.params);
   const [activity, setActivity] = useState('');
   const [loading, setLoading] = useState(true);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     if(route.params == 'Hazar Gölü Tekne Turu'){
@@ -217,7 +219,18 @@ const DetailPage = ({route}) => {
         {activity &&
           activity.map((data, index) => (
             <View style={styles.body_container} key={index}>
-              <Image style={styles.image} source={{uri: data.img}} />
+              <View stylr={styles.image_container}>
+                <TouchableOpacity 
+                  style={styles.maps} 
+                  onPress={() => navigation.navigate('MapPage')}
+                >
+                  <Image
+                    style={styles.img_map}
+                    source={require('../../../components/assets/maps.jpg')}
+                  />
+                </TouchableOpacity>
+                <Image style={styles.image} source={{uri: data.img}} />
+              </View>
               <Text style={styles.header}>{route.params}</Text>
               <Text style={styles.description} adjustsFontSizeToFit={true}>
                 {data.description}

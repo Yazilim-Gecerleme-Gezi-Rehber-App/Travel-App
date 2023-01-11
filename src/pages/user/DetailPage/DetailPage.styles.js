@@ -16,6 +16,19 @@ export default StyleSheet.create({
     body_container:{
         flexDirection:'column'
     },
+    image_container:{
+        flexDirection:'row'
+    },
+    img_map:{
+        borderRadius:500,
+        borderWidth:3,
+        borderColor:'#cc9900',
+        width:108,
+        height:108,
+        alignSelf:'flex-end',
+        marginBottom:-50,
+        
+    },
     image:{
         width:Dimensions.get('window').width/1.1,
         height:Dimensions.get('window').height/2,
@@ -27,14 +40,14 @@ export default StyleSheet.create({
     header:{
         fontSize:25,
         fontFamily:'LilitaOne-Regular',
-        color:'#1a1a1a',
+        color:'#1a1400',
         alignSelf:'center',
         marginVertical:10
     },
     description:{
         fontSize:16,
         fontFamily:'Righteous-Regular',
-        color:'#1a1a1a',
+        color:'black',
         textAlign:'justify',
         marginHorizontal:10,
         fontWeight:'bold'
