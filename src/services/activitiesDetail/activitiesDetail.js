@@ -12,7 +12,6 @@ const getHazarTekneTuru = () => {
     })
     .catch(err => err);
 };
-
 const getHazarKayak = () => {
   return firestore()
     .collection('Hazarbaba Kayak Merkezi')
@@ -24,7 +23,6 @@ const getHazarKayak = () => {
     })
     .catch(err => err);
 };
-
 const getKano = () => {
   return firestore()
     .collection('Kano')
@@ -36,7 +34,6 @@ const getKano = () => {
     })
     .catch(err => err);
 };
-
 const getMaceraParkı = () => {
   return firestore()
     .collection('Macera Parkı')
@@ -48,7 +45,6 @@ const getMaceraParkı = () => {
     })
     .catch(err => err);
 };
-
 const getRafting = () => {
   return firestore()
     .collection('Rafting')
@@ -60,7 +56,6 @@ const getRafting = () => {
     })
     .catch(err => err);
 };
-
 const getZipline = () => {
   return firestore()
     .collection('Zipline')
@@ -85,7 +80,6 @@ const getCimsit = () => {
     })
     .catch(err => err);
 };
-
 const getDabakhane = () => {
   return firestore()
     .collection('Dabakhane Mescidi')
@@ -97,7 +91,6 @@ const getDabakhane = () => {
     })
     .catch(err => err);
 };
-
 const getHarputKalesi = () => {
   return firestore()
     .collection('Harput Kalesi')
@@ -109,7 +102,6 @@ const getHarputKalesi = () => {
     })
     .catch(err => err);
 };
-
 const getHarputUluCami = () => {
   return firestore()
     .collection('Harput Ulu Cami')
@@ -121,7 +113,6 @@ const getHarputUluCami = () => {
     })
     .catch(err => err);
 };
-
 const getKomurhan = () => {
   return firestore()
     .collection('Kömürhan Köprüsü')
@@ -133,7 +124,6 @@ const getKomurhan = () => {
     })
     .catch(err => err);
 };
-
 const getMaden = () => {
   return firestore()
     .collection('Maden Saat Kulesi')
@@ -145,7 +135,6 @@ const getMaden = () => {
     })
     .catch(err => err);
 };
-
 const getPaluKalesi = () => {
   return firestore()
     .collection('Palu Kalesi')
@@ -157,7 +146,6 @@ const getPaluKalesi = () => {
     })
     .catch(err => err);
 };
-
 const getPaluSurp = () => {
   return firestore()
     .collection('Palu Surp Lusavoric Kilisesi')
@@ -169,7 +157,6 @@ const getPaluSurp = () => {
     })
     .catch(err => err);
 };
-
 const getPaluKoprusu = () => {
   return firestore()
     .collection('Tarihi Palu Köprüsü')
@@ -181,7 +168,6 @@ const getPaluKoprusu = () => {
     })
     .catch(err => err);
 };
-
 const getIzzet = () => {
   return firestore()
     .collection('İzzet Paşa Camii')
@@ -193,7 +179,6 @@ const getIzzet = () => {
     })
     .catch(err => err);
 };
-
 const getSefik = () => {
   return firestore()
     .collection('Şefik Gül Kültür Evi')
@@ -207,6 +192,118 @@ const getSefik = () => {
 };
 
 //Müzeler
+const getEtnografMuze = () => {
+  return firestore()
+    .collection('Arkeoloji ve Etnoğrafya Müzesi')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getMusikiMuze = () => {
+  return firestore()
+    .collection('Harput Musiki Müzesi')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+
+//Yeme-İçme
+const getKamil = () => {
+  return firestore()
+    .collection('Ciğerci Kamil Usta')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getElaziz = () => {
+  return firestore()
+    .collection('Elaziz Mutfağı')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getKeyfet = () => {
+  return firestore()
+    .collection('Keyfet Steak House')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getKocoglu = () => {
+  return firestore()
+    .collection('Koçoğlu Restaurant')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getMangal = () => {
+  return firestore()
+    .collection('Mangal Vadisi')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getOrjin = () => {
+  return firestore()
+    .collection('Orjin İskender')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getSelo = () => {
+  return firestore()
+    .collection('Selo Usta Tatlıları')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
+const getHisar = () => {
+  return firestore()
+    .collection('Hisar Kasap Izgara')
+    .get()
+    .then(snap => {
+      const tur = [];
+      snap.forEach(s => tur.push(s.data()));
+      return tur;
+    })
+    .catch(err => err);
+};
 
 export default ActivityDetail = {
     getHazarTekneTuru,
@@ -226,4 +323,14 @@ export default ActivityDetail = {
     getPaluKoprusu,
     getIzzet,
     getSefik,
+    getEtnografMuze,
+    getMusikiMuze,
+    getKamil,
+    getElaziz,
+    getKeyfet,
+    getKocoglu,
+    getMangal,
+    getOrjin,
+    getSelo,
+    getHisar
 }

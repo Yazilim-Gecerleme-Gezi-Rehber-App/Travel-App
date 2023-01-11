@@ -130,6 +130,77 @@ const DetailPage = ({route}) => {
       })
       .catch(err => Alert.alert(err.code, err.message));
     }
+    else if(route.params == 'Arkeoloji ve Etnoğrafya Müzesi'){
+      ActivityDetail.getEtnografMuze()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Harput Musiki Müzesi'){
+      ActivityDetail.getMusikiMuze()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Ciğerci Kamil Usta'){
+      ActivityDetail.getKamil()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Elaziz Mutfağı'){
+      ActivityDetail.getElaziz()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+
+    else if(route.params == 'Keyfet Steak House'){
+      ActivityDetail.getKeyfet()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Koçoğlu Restaurant'){
+      ActivityDetail.getKocoglu()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Mangal Vadisi'){
+      ActivityDetail.getMangal()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Orjin İskender'){
+      ActivityDetail.getOrjin()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Selo Usta Tatlıları'){
+      ActivityDetail.getSelo()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
+    else if(route.params == 'Hisar Kasap Izgara'){
+      ActivityDetail.getHisar()
+      .then(act => {
+        setActivity(act), setLoading(false);
+      })
+      .catch(err => Alert.alert(err.code, err.message));
+    }
   });
 
   if (loading) {
